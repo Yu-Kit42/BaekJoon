@@ -8,7 +8,7 @@ public class Main {
         String[] a = bf.readLine().split(" ");
         int fir = Integer.parseInt(a[0]);
         int las = Integer.parseInt(a[1]);
-        boolean[] prime = new boolean[las + 1];    // 0 ~ N
+        boolean[] prime = new boolean[las + 1];   
 
 
         if(las < 2) {
@@ -25,7 +25,7 @@ public class Main {
             }
         }
         for(int i = fir; i < prime.length; i++) {
-            if(prime[i] == false) {	// 소수(false)일 경우 출력
+            if(prime[i] == false) {
                 System.out.println(i);
             }
         }
