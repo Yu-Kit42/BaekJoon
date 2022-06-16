@@ -1,8 +1,5 @@
 import java.util.Scanner;
-/*
-    문자열을 뒤집을땐 StringBuffer 사용합시다! 손수코딩하면 안돼용!
 
- */
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
