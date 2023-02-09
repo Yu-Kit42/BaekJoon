@@ -1,53 +1,43 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(bf.readLine());
-        String in = "";
         String[] stack = new String[N];
-        int idx = 0;
+
+        int idx = -1;
 
         for (int i = 0; i < N; i++){
-            in = bf.readLine();
+            String[] in = bf.readLine().split(" ");
 
-            if (in.split(" ").length == 2) {
-                idx++;
-                stack[idx] = in.split(" ")[1];
-            }
+            switch (in[0]){
+                case "push":
+                    idx++;
+                    stack[idx] = in[1];
+                    break;
 
-            switch (in) {
                 case "pop":
-                    if (idx == 0) {
-                        System.out.println(-1);
-                        break;
-                    }
-                    System.out.println(stack[idx]);
-                    idx--;
+                    sb.append((idx == -1 ? -1 : stack[idx--])).append("\n");
                     break;
 
                 case "size":
-                    System.out.println(idx);
+                    sb.append(idx + 1).append("\n");
                     break;
 
                 case "empty":
-                    if (idx <= 0)
-                        System.out.println(1);
-                    else
-                        System.out.println(0);
+                    sb.append((idx == -1 ? 1 : 0)).append("\n");
                     break;
 
                 case "top":
-                    if (idx <= 0)
-                        System.out.println(-1);
-                    else
-                        System.out.println(stack[idx]);
+                    sb.append((idx == -1 ? -1 : stack[idx])).append("\n");
                     break;
             }
-//            System.out.println(idx);
         }
+        System.out.println(sb);
     }
 }
+
